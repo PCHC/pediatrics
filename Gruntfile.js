@@ -61,6 +61,30 @@ module.exports = function(grunt) {
         }
       }
     },
+    sass: {
+      dev: {
+        options: {
+          style: 'expanded'
+        },
+        files: {
+          'assets/css/main.css': [
+            'assets/vendor/normalize.css/normalize.css',
+            'assets/sass/main.scss'
+          ]
+        }
+      },
+      build: {
+        options: {
+          style: 'compressed'
+        },
+        files: {
+          'assets/css/main.min.css': [
+            'assets/vendor/normalize.css/normalize.css',
+            'assets/sass/main.scss'
+          ]
+        }
+      }
+    },
     concat: {
       options: {
         separator: ';',
@@ -127,12 +151,12 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      less: {
+      sass: {
         files: [
-          'assets/less/*.less',
-          'assets/less/**/*.less'
+          'assets/sass/*.scss',
+          'assets/sass/**/*.scss'
         ],
-        tasks: ['less:dev', 'autoprefixer:dev']
+        tasks: ['sass:dev', 'autoprefixer:dev']
       },
       js: {
         files: [
@@ -163,13 +187,13 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask('dev', [
     'jshint',
-    'less:dev',
+    'sass:dev',
     'autoprefixer:dev',
     'concat'
   ]);
   grunt.registerTask('build', [
     'jshint',
-    'less:build',
+    'sass:build',
     'autoprefixer:build',
     'uglify',
     'modernizr',

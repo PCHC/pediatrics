@@ -1,0 +1,8 @@
+@import "../vendor/bourbon/dist/bourbon";
+@import "settings/neat";
+@import "../vendor/neat/app/assets/stylesheets/neat";
+
+$visual-grid: true;
+$visual-grid-color: red;
+$visual-grid-index: front;
+$visual-grid-opacity: 0.5;	
