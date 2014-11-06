@@ -10,6 +10,10 @@
  *   <li class="menu-home"><a href="/">Home</a></li>
  *   <li class="menu-sample-page"><a href="/sample-page/">Sample Page</a></li>
  */
+
+// Include custom Font Awesome menu icons
+include_once( 'plugins/fontawesome-menu/fontawesome-menu.php' );
+
 class Roots_Nav_Walker extends Walker_Nav_Menu {
   function check_current($classes) {
     return preg_match('/(current[-_])|active|dropdown/', $classes);
@@ -21,11 +25,23 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
 
   function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
     $item_html = '';
+
+    // Adds icon before link if an icon is selected.
+    $args->link_before = '';
+    $args->link_after = '';
+
+    if( esc_attr( $item->fa_icon ) != '' ) {
+      if( esc_attr( $item->fa_icon_dir ) == 'right' ) {
+        $args->link_after = esc_attr( $item->fa_icon ) ? ' <i class="fa '.$item->fa_icon.'"></i>' : '';
+      } else {
+        $args->link_before = esc_attr( $item->fa_icon ) ? '<i class="fa '.$item->fa_icon.'"></i> ' : '';
+      }
+    }
     parent::start_el($item_html, $item, $depth, $args);
 
     if ($item->is_dropdown && ($depth === 0)) {
-      $item_html = str_replace('<a', '<a class="dropdown-toggle" data-toggle="dropdown" data-target="#"', $item_html);
-      $item_html = str_replace('</a>', ' <b class="caret"></b></a>', $item_html);
+      $item_html = str_replace('<a', '<a class="dropdown-toggle" data-target="#"', $item_html);
+      //$item_html = str_replace('</a>', ' <i class="fa fa-caret-down"></i></a>', $item_html);
     }
     elseif (stristr($item_html, 'li class="divider')) {
       $item_html = preg_replace('/<a[^>]*>.*?<\/a>/iU', '', $item_html);

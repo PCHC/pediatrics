@@ -82,6 +82,10 @@ header.banner-top {
 		li {
 			font-size: 16px;
 			display: inline-block;
+
+			> .dropdown-menu {
+				display: none;
+			}
 		}
 	}
 
@@ -109,6 +113,20 @@ header.banner-top {
 		@include direction-context($direction: right-to-left) {
 			nav {
 				@include span-columns(8);
+			}
+		}
+
+		.nav {
+			a {
+				font-size: em(18px);
+				line-height: 2em;
+				display: block;
+				padding: 0 0.8em;
+				transition: all 0.15s ease-out;
+
+				&:hover {
+					background: rgba(#FFF, 0.5);
+				}
 			}
 		}
 	}
