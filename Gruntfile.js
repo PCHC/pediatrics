@@ -68,7 +68,6 @@ module.exports = function(grunt) {
         },
         files: {
           'assets/css/main.css': [
-            'assets/vendor/normalize.css/normalize.css',
             'assets/sass/main.scss'
           ]
         }
@@ -79,20 +78,25 @@ module.exports = function(grunt) {
         },
         files: {
           'assets/css/main.min.css': [
-            'assets/vendor/normalize.css/normalize.css',
             'assets/sass/main.scss'
           ]
         }
       }
     },
     concat: {
-      options: {
-        separator: ';',
-      },
-      dist: {
+      js: {
+        options: {
+          separator: ';',
+        },
         src: [jsFileList],
         dest: 'assets/js/scripts.js',
       },
+      sass: {
+        src: [
+          'assets/vendor/normalize.css/normalize.css',
+        ],
+        dest: 'assets/sass/_normalize.scss',
+      }
     },
     uglify: {
       dist: {
@@ -187,9 +191,9 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask('dev', [
     'jshint',
-    'sass:dev',
     'autoprefixer:dev',
-    'concat'
+    'concat',
+    'sass:dev'
   ]);
   grunt.registerTask('build', [
     'jshint',

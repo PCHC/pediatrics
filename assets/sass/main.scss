@@ -1,8 +1,117 @@
+@import "normalize";
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,700,400|Roboto+Slab:300,700,400);
 @import "../vendor/bourbon/dist/bourbon";
-@import "settings/neat";
+//@import "settings/neat";
+$visual-grid: false;
+$visual-grid-color: cyan;
+$visual-grid-index: front;
+$visual-grid-opacity: 0.15;
+
 @import "../vendor/neat/app/assets/stylesheets/neat";
 
-$visual-grid: true;
-$visual-grid-color: red;
-$visual-grid-index: front;
-$visual-grid-opacity: 0.5;	
+@import "shadows";
+
+$color-primary:					rgba(47,52,133,1);
+	$color-primary-highlight:	rgba(70,78,165,1);
+$color-secondary:				rgba(141,113,103,1);
+$color-highlight:				rgba(190,30,45,1);
+
+$header-font:		'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+$primary-font:		'Roboto Slab', 'Bitter', serif;
+
+body {
+	font-family: $primary-font;
+	font-weight: 400;
+}
+
+a {
+	color: $color-primary;
+	text-decoration: none;
+	transition: color 0.15s ease-out;
+	&:hover {
+		color: $color-primary-highlight;
+	}
+}
+
+.container {
+	@include outer-container;
+}
+
+header.banner-top {
+
+	&.navbar-fixed-top {
+		//position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		//.admin-bar & { margin-top: 32px !important }
+	}
+
+	.navbar-main {
+		background: $color-primary;
+		color: #FFF;
+		//height: em(60px);
+		position: relative;
+		z-index: 2;
+		@include shadow-z-2;
+	}
+
+	.navbar-secondary {
+		background: lighten(#000, 93%);
+		height: em(36px);
+		position: relative;
+		z-index: 1;
+		@include shadow-z-1;
+	}
+
+}
+
+.navbar {
+	.nav { 
+		float: right; 
+		font-family: $header-font;
+		font-weight: 100;
+
+		&, li {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			font-size: 0;
+		}
+
+		li {
+			font-size: 16px;
+			display: inline-block;
+		}
+	}
+
+	.navbar-header { @include span-columns(4); }
+	nav { @include span-columns(8); }
+
+	&.navbar-main {
+		.nav {
+			a {
+				font-size: em(30px);
+				line-height: 2em;
+				display: block;
+				padding: 0 0.8em;
+				color: #FFF;
+				transition: all 0.15s ease-out;
+
+				&:hover {
+					background: $color-primary-highlight;
+				}
+			}
+		}
+	}
+
+	&.navbar-secondary {
+		@include direction-context($direction: right-to-left) {
+			nav {
+				@include span-columns(8);
+			}
+		}
+	}
+}
+
+
