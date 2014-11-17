@@ -9,5 +9,5 @@ assets/js/*scripts*.js
 !assets/js/*.min.js
 !assets/js/vendor/modernizr.min.js
 !assets/vendor/jquery/dist/jquery.min.js
-assets/manifest.json
+# assets/manifest.json
 .sass-cache
