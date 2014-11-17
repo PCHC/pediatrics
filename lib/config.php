@@ -58,7 +58,7 @@ function roots_display_sidebar() {
     )
   );
 
-  return apply_filters('roots/display_sidebar', $sidebar_config->display);
+  return $display;
 }
 
 /**
