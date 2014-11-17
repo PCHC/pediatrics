@@ -1,0 +1,32 @@
+body {
+	font-family: $primary-font;
+	font-weight: 300;
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	color: $color-gray-900;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $header-font;
+	font-weight: 100;
+	line-height: 1.1;
+	color: $color-primary;
+}
+
+h1, h3, h5 {
+	margin-top: ($line-height-computed);
+  	margin-bottom: ($line-height-computed / 2);
+}
+
+h2, h4, h6 {
+	color: $color-secondary;
+	margin-top: ($line-height-computed / 2);
+  	margin-bottom: ($line-height-computed / 2);
+}
+
+h1 { font-size: $font-size-h1; }
+h2 { font-size: $font-size-h2; }
+h3 { font-size: $font-size-h3; }
+h4 { font-size: $font-size-h4; }
+h5 { font-size: $font-size-h5; }
+h6 { font-size: $font-size-h6; }
