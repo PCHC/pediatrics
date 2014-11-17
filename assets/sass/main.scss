@@ -43,14 +43,21 @@ a {
 	}
 
 	> .wrap:nth-of-type(1) {
-		margin-top: em(96px);
+		margin-top: em(96px*0.75);
+		@include media($screen-sm-min) {
+			margin-top: em(96px);
+		}
 	}
 }
 
 header.banner-top {
 
 	.navbar-toggle {
-		display: none;
+		background: none;
+		border: none;
+		@include media($screen-sm-min) {
+			display: none;
+		}
 	}
 
 	&.navbar-fixed-top {
@@ -66,13 +73,18 @@ header.banner-top {
 		position: absolute;
 		top: em(6px);
 		display: block;
-		width: em(121px);
-		height: em(80px);
 		overflow: hidden;
+		width: em(121px*0.6);
+		height: em(80px*0.6);
 		white-space: nowrap;
 		text-indent: 150%;
 		background: url(../img/logo-full_2x.png) 0 0 no-repeat;
 		background-size: contain;
+
+		@include media($screen-sm-min) {
+			width: em(121px);
+			height: em(80px);
+		}
 	}
 
 	.navbar-main {
@@ -82,13 +94,10 @@ header.banner-top {
 		position: relative;
 		z-index: 2;
 		@include shadow-z-1;
-	}
 
-	.navbar-secondary {
-		background: lighten(#000, 93%);
-		position: relative;
-		z-index: 1;
-		@include shadow-z-1;
+		.navbar-toggle {
+			display: none;
+		}
 	}
 
 }
@@ -112,56 +121,76 @@ header.banner-top {
 			position: relative;
 			z-index: 1;
 
-			> .dropdown-menu {
-				display: none;
-				position: absolute;
-				top: 100%;
-				left: 0.4em;
-				margin: 0;
-				padding: 0;
-				width: auto;
-				background: lighten(#000, 93%);
-				transition: all 0.15s ease-in;
-				@include shadow-z-1;
-
-				li {
-					display: block;
-				}
-
-				a {
-					display: block;
-					white-space: nowrap;
-					font-size: 1em;
-					border-top: 1px solid rgba(#FFF, 0.3);
-				}
-			}
-
-			&:hover {
+			@include media($screen-sm-min) {
 				> .dropdown-menu {
-					display: block;
+					display: none;
+					position: absolute;
+					top: 100%;
+					left: 0.4em;
+					margin: 0;
+					padding: 0;
+					width: auto;
+					background: lighten(#000, 93%);
+					transition: all 0.15s ease-in;
+					@include shadow-z-1;
+
+					li {
+						display: block;
+					}
+
+					a {
+						display: block;
+						white-space: nowrap;
+						font-size: 1em;
+						border-top: 1px solid rgba(#FFF, 0.3);
+					}
+				}
+
+
+				&:hover {
+					> .dropdown-menu {
+						display: block;
+					}
 				}
 			}
 		}
 	}
 
-	.navbar-header { @include span-columns(4); }
-	nav { @include span-columns(8); }
+	.navbar-header { 
+		@include span-columns(3);
+		@include media($screen-sm-min) {
+			@include span-columns(4);
+		}
+	}
+	nav {
+		@include media($screen-sm-min) {
+			@include span-columns(8);
+		}
+	}
 
 	&.navbar-main {
 		@include direction-context($direction: right-to-left) {
 			nav {
-				@include span-columns(8);
+				@include span-columns(9);
+				@include media($screen-sm-min) {
+					@include span-columns(8);
+				}
 			}
 		}
 		
 		.nav {
 			a {
-				font-size: em(30px);
+				font-size: em(16px);
+				padding: 0 0.4em;
 				line-height: 2em;
 				display: block;
-				padding: 0 0.8em;
 				color: #FFF;
 				transition: all 0.15s ease-out;
+
+				@include media($screen-sm-min) {
+					font-size: em(30px);	
+					padding: 0 0.8em;
+				}
 
 				&:hover {
 					background: $color-primary-highlight;
@@ -171,34 +200,119 @@ header.banner-top {
 	}
 
 	&.navbar-secondary {
+		position: relative;
+		z-index: 1;
+		@include media($screen-sm-min) {
+			background: lighten(#000, 93%);
+			@include shadow-z-1;
+		}
+
 		@include direction-context($direction: right-to-left) {
 			nav {
-				@include span-columns(8);
+				@include media($screen-sm-min) {
+					@include span-columns(8);
+				}
 			}
 		}
 
 		.nav {
 			a {
-				font-size: em(18px);
-				line-height: 2em;
 				display: block;
-				padding: 0 0.8em;
+				line-height: 1.25em;
+				padding: 0.4em 0.8em;
 				transition: all 0.15s ease-out;
+
+				@include media($screen-sm-min) {
+					font-size: em(18px);
+					line-height: 2em;
+					padding: 0 0.8em;
+				}
 
 				&:hover {
 					background: rgba(#FFF, 0.5);
+				}
+			}
+
+			@include media(max-width $screen-sm) {
+				background: rgba(#FFF, 0.95);
+				@include shadow-z-1;
+
+				li {
+					display: block;
+				}
+
+				.dropdown-menu {
+					padding-left: 2em;
+				}
+			}
+		}
+
+		.navbar-toggle {
+			.sr-only {
+				display: none;
+			}
+		}
+
+		@include media(max-width $screen-sm) {
+			.navbar-toggle {
+				font-size: 1em;
+				width: 2em;
+				height: 2em;
+				padding: 0;
+				display: block;
+				position: absolute;
+				top: 0;
+				left: -2em;
+				background: rgba(#FFF, 0.8);
+
+				&:hover {
+					background: rgba(#FFF,1);
+				}
+			}
+
+			.container {
+				position: absolute;
+				top: 0;
+				left: 100%;
+				padding-left: 2em;
+				@include transition(all 0.15s ease-out);
+			}
+
+			&.collapse.in {
+				.container {
+					left: 35%;
+				}
+				.navbar-toggle {
+					left: 0;
 				}
 			}
 		}
 	}
 }
 
-.row { @include row; }
+.row {
+	@include row;
+}
 
-.main { @include span-columns(7); }
+.main { 
+	@include span-columns(12);
+	@include pad;
+
+	@include media($screen-sm-min) {
+       @include span-columns(7);
+       @include pad(0);
+     }
+}
 .sidebar { 
-	@include span-columns(4); 
-	@include shift(1); 
+	@include span-columns(12);
+	@include pad;
+
+	@include media($screen-sm-min) {
+		@include span-columns(4); 
+		@include shift(1); 
+		@include pad(0);
+	}
+
 	margin-top: em($font-size-base); 
 
 	.fb-button {
@@ -230,20 +344,26 @@ footer.content-info {
 	color: #FFF;
 	font-family: $header-font;
 	font-weight: 100;
+	text-align: center;
 	@include row;
 	@include shadow-z-2;
 
 	.copyright {
-		@include span-columns(3);
 		line-height: 2.5em;
 		padding: em(12px) 0;
+		@include media($screen-sm-min) {
+			text-align: left;
+			@include span-columns(3);
+		}
 	}
 
 	.footer-locations {
-		text-align: right;
-		@include span-columns(9);
 		line-height: 1.25em;
 		padding: em(12px) 0;
+		@include media($screen-sm-min) {
+			text-align: right;
+			@include span-columns(9);
+		}
 	}
 
 	em {
@@ -508,7 +628,9 @@ img {
 
 		max-width: em(100px);
 		&.align-left {
-			margin-left: em(-50px);
+			@include media($screen-sm-min) {
+				margin-left: em(-50px);
+			}
 		}
 	}
 	h3 {
@@ -541,6 +663,13 @@ img {
 .ms-slide-info {
 	top: 0;
 	bottom: 0;
+	@include media(max-width $screen-sm) {
+		left: 0 !important;
+		right: 0 !important;
+		width: auto !important;
+		top: 20% !important;
+		bottom: 0 !important;
+	}
 }
 
 .ms-info {
@@ -555,13 +684,17 @@ img {
 	padding: 1em;
 	background: rgba(#000, 0.47);
 
+	@include media(max-width $screen-sm) {
+		font-size: 1.25em;
+		padding: 0.25em;
+	}
+
 	> .fa {
 		margin: 0.5em;
 		font-size: 1.5em;
 	}
 
-	#slide-right & {
-		left: auto !important;
-		right: 100px !important;
+	a {
+		color: #FFF;
 	}
 }
