@@ -410,6 +410,7 @@ footer.content-info {
 			&:before {
 				background: url(../img/bg-service.jpg);
 				background-position: 100% 35%;
+				@include media(max-width $screen-sm) { background-size: cover; }
 			}
 			.page-header {
 				h1 {
@@ -425,6 +426,7 @@ footer.content-info {
 			&:before {
 				background: url(../img/bg-staff.jpg);
 				background-position: 100% 50%;
+				@include media(max-width $screen-sm) { background-size: cover; }
 			}
 			.page-header {
 				h1 {
@@ -440,6 +442,7 @@ footer.content-info {
 			&:before {
 				background: url(../img/bg-location.jpg);
 				background-position: 100% 50%;
+				@include media(max-width $screen-sm) { background-size: cover; }
 			}
 			.page-header {
 				h1 {
