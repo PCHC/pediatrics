@@ -39,7 +39,7 @@ function roots_scripts() {
     );
   }
 
-  wp_enqueue_style('roots_css', get_template_directory_uri() . $assets['css'], false, null);
+  wp_enqueue_style('roots_css', get_template_directory_uri() . $assets['css'], false, $assets['assets/css/main.min.css']['hash']);
 
   /**
    * jQuery is loaded using the same method from HTML5 Boilerplate:
