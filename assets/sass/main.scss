@@ -315,10 +315,15 @@ header.banner-top {
 
 	margin-top: em($font-size-base); 
 
-	.fb-button {
+	.widget-button {
+
+	}
+
+	.widget-button {
 		display: block;
 		line-height: 1.75em;
 		padding: 0 0.75em;
+		margin: em(16px);
 		background: $color-primary;
 		color: #FFF;
 		text-align: center;
@@ -335,6 +340,22 @@ header.banner-top {
 
 		.fa {
 			margin-right: 0.25em;
+		}
+
+		&.widget-button-brown {
+			background: $color-secondary;
+
+			&:hover {
+				background: lighten($color-secondary, 5%);
+			}
+		}
+
+		&.widget-button-red {
+			background: $color-highlight;
+
+			&:hover {
+				background: lighten($color-highlight, 5%);
+			}
 		}
 	}
 }
