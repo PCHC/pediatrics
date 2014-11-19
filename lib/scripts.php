@@ -23,7 +23,7 @@ function roots_scripts() {
     $assets = array(
       'css'       => '/assets/css/main.css',
       'js'        => '/assets/js/scripts.js',
-      'ie8css'    => '/assets/css/ie8.css',
+      'ie8_css'    => '/assets/css/ie8.css',
       'modernizr' => '/assets/vendor/modernizr/modernizr.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js',
       'google-maps' => 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'
@@ -34,7 +34,7 @@ function roots_scripts() {
     $assets     = array(
       'css'       => '/assets/css/main.min.css?' . $assets['assets/css/main.min.css']['hash'],
       'js'        => '/assets/js/scripts.min.js?' . $assets['assets/js/scripts.min.js']['hash'],
-      'ie8css'    => '/assets/css/ie8.min.css?' . $assets['assets/css/ie8.min.css']['hash'],
+      'ie8_css'    => '/assets/css/ie8.min.css?' . $assets['assets/css/ie8.min.css']['hash'],
       'modernizr' => '/assets/js/vendor/modernizr.min.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
       'google-maps' => 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'

@@ -408,8 +408,7 @@ footer.content-info {
 	&.post-type-archive-service {
 		.wrap-main {
 			&:before {
-				background: url(../img/bg-service.jpg);
-				background-position: 100% 35%;
+				background: url(../img/bg-service.jpg) 100% 35% no-repeat;
 				@include media(max-width $screen-sm) { background-size: cover; }
 			}
 			.page-header {
@@ -424,8 +423,7 @@ footer.content-info {
 	&.post-type-archive-staff {
 		.wrap-main {
 			&:before {
-				background: url(../img/bg-staff.jpg);
-				background-position: 100% 50%;
+				background: url(../img/bg-staff.jpg) 100% 50% no-repeat;
 				@include media(max-width $screen-sm) { background-size: cover; }
 			}
 			.page-header {
@@ -440,8 +438,7 @@ footer.content-info {
 	&.post-type-archive-location {
 		.wrap-main {
 			&:before {
-				background: url(../img/bg-location.jpg);
-				background-position: 100% 50%;
+				background: url(../img/bg-location.jpg) 100% 50% no-repeat;
 				@include media(max-width $screen-sm) { background-size: cover; }
 			}
 			.page-header {
@@ -699,5 +696,38 @@ img {
 
 	a {
 		color: #FFF;
+	}
+}
+
+.wpfilebase-file-default {
+	width: auto;
+	height: auto;
+	padding: em(16px);
+	background: $color-gray-100;
+	border: none;
+	margin: em(24px) 0;
+	@include shadow-z-1;
+	transition: all 0.15s ease-out;
+
+	&:hover {
+		@include shadow-z-2;
+		background: $color-gray-50;
+	}
+
+	.icon, .info, .details {
+		display: none;
+	}
+
+	.filetitle {
+		float: none;
+		width: auto;
+		height: auto;
+		margin: 0;
+		padding: 0;
+
+		a {
+			font-size: em(24px);
+			line-height: 1.25;
+		}
 	}
 }
