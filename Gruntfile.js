@@ -152,11 +152,11 @@ module.exports = function(grunt) {
           manifest: 'assets/manifest.json',
           querystring: {
             style: 'roots_css',
-            script: 'roots_js'
+            script: 'roots_js'            
           }
         },
         files: {
-          'lib/scripts.php': 'assets/{css,js}/{main,scripts}.min.{css,js}'
+          'lib/scripts.php': 'assets/{css,js}/{main,scripts,ie8}.min.{css,js}'
         }
       }
     },
