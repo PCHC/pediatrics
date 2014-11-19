@@ -45,7 +45,7 @@ function roots_scripts() {
 
   wp_enqueue_style('roots_css', get_template_directory_uri() . $assets['css'], false, $assets['assets/css/main.min.css']['hash']);
   wp_enqueue_style('ie8_css', get_template_directory_uri() . $assets['ie8css'], false, $assets['assets/css/ie8css.min.css']['hash']);
-  $wp_styles->add_data( 'ie8_css', 'conditional', 'lte IE 8' );
+  $wp_styles->add_data( 'ie8_css', 'conditional', 'lt IE 9' );
 
   /**
    * jQuery is loaded using the same method from HTML5 Boilerplate:
