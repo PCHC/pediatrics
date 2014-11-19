@@ -1,0 +1,14 @@
+@import "../vendor/bourbon/dist/bourbon";
+@import "../vendor/neat/app/assets/stylesheets/neat";
+@import "variables";
+
+.main {
+	@include span-columns(7);
+	@include pad(0);
+}
+
+.sidebar {
+	@include span-columns(4); 
+	@include shift(1); 
+	@include pad(0);
+}

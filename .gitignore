@@ -3,6 +3,7 @@
 node_modules
 assets/vendor/*
 assets/css/main.css.map
+assets/css/ie8.css.map
 assets/css/*main*.css
 !assets/css/*.min.css
 assets/js/*scripts*.js

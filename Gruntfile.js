@@ -69,6 +69,9 @@ module.exports = function(grunt) {
         files: {
           'assets/css/main.css': [
             'assets/sass/main.scss'
+          ],
+          'assets/css/ie8.css': [
+            'assets/sass/ie8.scss'
           ]
         }
       },
@@ -79,6 +82,9 @@ module.exports = function(grunt) {
         files: {
           'assets/css/main.min.css': [
             'assets/sass/main.scss'
+          ],
+          'assets/css/ie8.min.css': [
+            'assets/sass/ie8.scss'
           ]
         }
       }
