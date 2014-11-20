@@ -3,6 +3,10 @@
 @import "variables";
 
 body {
+	.wrap-main {
+		margin-top: 4.5em;
+	}
+	
 	.main {
 		@include span-columns(7);
 		@include pad(0);
