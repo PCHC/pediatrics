@@ -18,7 +18,7 @@ body .main {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 65.88078%;
+  width: 57.35098%;
   padding: 0;
 }
 body .main:last-child {
@@ -29,8 +29,9 @@ body .sidebar {
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
-  margin-left: 0%;
+  margin-left: 8.5298%;
   padding: 0;
+  margin-right: 0;
 }
 body .sidebar:last-child {
   margin-right: 0;
@@ -77,6 +78,14 @@ body .navbar.navbar-secondary .nav li > .dropdown-menu a {
   white-space: nowrap;
   font-size: 1em;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+body .widget_peds_staff_widget img {
+  width: 6.25em;
+}
+body header.banner-top .navbar-brand {
+  width: 7.5625em;
+  height: 5em;
+  background-image: url(../img/logo-full.png);
 }
 
 /*# sourceMappingURL=ie8.css.map */
