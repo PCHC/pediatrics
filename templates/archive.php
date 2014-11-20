@@ -4,6 +4,10 @@
     <?php get_template_part('templates/entry-meta'); ?>
   </header>
   <div class="entry-summary">
-    <?php the_excerpt(); ?>
+  	<?php if( get_post_type() == 'service' ) {
+  		the_content();
+    } else {
+    	the_excerpt();
+    } ?>
   </div>
 </article>
