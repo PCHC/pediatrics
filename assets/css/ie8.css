@@ -14,18 +14,17 @@ html {
   box-sizing: inherit;
 }
 
-.main {
+body .main {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 57.35098%;
   padding: 0;
 }
-.main:last-child {
+body .main:last-child {
   margin-right: 0;
 }
-
-.sidebar {
+body .sidebar {
   float: left;
   display: block;
   margin-right: 2.35765%;
@@ -33,7 +32,7 @@ html {
   margin-left: 8.5298%;
   padding: 0;
 }
-.sidebar:last-child {
+body .sidebar:last-child {
   margin-right: 0;
 }
 

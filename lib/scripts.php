@@ -44,7 +44,7 @@ function roots_scripts() {
   global $wp_styles;
 
   wp_enqueue_style('roots_css', get_template_directory_uri() . $assets['css'], false, $assets['assets/css/main.min.css']['hash']);
-  wp_enqueue_style('ie8_css', get_template_directory_uri() . $assets['ie8css'], false, $assets['assets/css/ie8css.min.css']['hash']);
+  wp_enqueue_style('ie8_css', get_template_directory_uri() . $assets['ie8_css'], false, $assets['assets/css/ie8css.min.css']['hash']);
   $wp_styles->add_data( 'ie8_css', 'conditional', 'lt IE 9' );
 
   /**
