@@ -4,14 +4,15 @@
 
 body {
 	.main {
-		@include span-columns(8);
+		@include span-columns(7);
 		@include pad(0);
 	}
 
 	.sidebar {
 		@include span-columns(4); 
-		@include shift(0);
+		@include shift(1);
 		@include pad(0);
+		margin-right: 0;
 	}
 
 	.navbar {
@@ -67,6 +68,22 @@ body {
 						}
 					}
 				}
+			}
+		}
+	}
+
+	.widget_peds_staff_widget {
+		img {
+			width: 6.25em;
+		}
+	}
+
+	header {
+		&.banner-top {
+			.navbar-brand {
+				width: em(121px);
+				height: em(80px);
+				background-image: url(../img/logo-full.png);
 			}
 		}
 	}
