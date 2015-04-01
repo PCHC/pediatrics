@@ -21,6 +21,15 @@ a {
 	&:hover {
 		color: $color-primary-highlight;
 	}
+
+	&[name] {
+		display: block;
+		position: relative;
+		top: -3em;
+		@include media($screen-sm-min) {
+			top: -6em;
+		}
+	}
 }
 
 .container {
