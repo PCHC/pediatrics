@@ -106,7 +106,7 @@ header.banner-top {
 	.nav { 
 		float: right; 
 		font-family: $header-font;
-		font-weight: 100;
+		font-weight: 300;
 
 		&, li {
 			margin: 0;
@@ -159,12 +159,12 @@ header.banner-top {
 	.navbar-header { 
 		@include span-columns(3);
 		@include media($screen-sm-min) {
-			@include span-columns(4);
+			@include span-columns(3);
 		}
 	}
 	nav {
 		@include media($screen-sm-min) {
-			@include span-columns(8);
+			@include span-columns(10);
 		}
 	}
 
@@ -173,7 +173,7 @@ header.banner-top {
 			nav {
 				@include span-columns(9);
 				@include media($screen-sm-min) {
-					@include span-columns(8);
+					@include span-columns(9);
 				}
 			}
 		}
@@ -196,6 +196,21 @@ header.banner-top {
 					background: $color-primary-highlight;
 				}
 			}
+
+			li {
+				@include media(max-width $screen-sm) {
+					> .dropdown-menu {
+						display: none;
+					}
+				}
+				@include media($screen-sm-min) {
+					> .dropdown-menu {
+						left: 0;
+						right: 0;
+						background: darken($color-primary, 7%);
+					}
+				}
+			}
 		}
 	}
 
@@ -210,7 +225,7 @@ header.banner-top {
 		@include direction-context($direction: right-to-left) {
 			nav {
 				@include media($screen-sm-min) {
-					@include span-columns(8);
+					@include span-columns(10);
 				}
 			}
 		}
