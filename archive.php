@@ -18,11 +18,47 @@
   </div>
 <?php endif; ?>
 
-<section class="main-content">
-  <?php while (have_posts()) : the_post(); ?>
-    <?php get_template_part('templates/archive', get_post_type()); ?>
-  <?php endwhile; ?>
-</section>
+<?php if( get_post_type() == 'staff' ) : 
+  $penpeds_staff = new WP_Query(array(
+    'numberposts' =>  -1,
+    'post_type' =>    'staff',
+    'meta_key' =>     'location',
+    'meta_value' =>   'penpeds'
+  ));
+  
+  if ($penpeds_staff->have_posts()) : ?>
+    <h2>Penobscot Pediatrics</h2>
+    <section class="main-content">
+      <?php while ($penpeds_staff->have_posts()) : $penpeds_staff->the_post(); ?>
+        <?php get_template_part('templates/archive', get_post_type()); ?>
+      <?php endwhile; ?>
+    </section>
+  <?php endif; ?>
+
+  <?php
+  $hhhc_staff = new WP_Query(array(
+    'numberposts' =>  -1,
+    'post_type' =>    'staff',
+    'meta_key' =>     'location',
+    'meta_value' =>   'hhhc'
+  ));
+  
+  if ($hhhc_staff->have_posts()) : ?>
+    <h2>Helen Hunt Health Center</h2>
+    <section class="main-content">
+      <?php while ($hhhc_staff->have_posts()) : $hhhc_staff->the_post(); ?>
+        <?php get_template_part('templates/archive', get_post_type()); ?>
+      <?php endwhile; ?>
+    </section>
+  <?php endif; ?>
+
+<?php else : ?>
+  <section class="main-content">
+    <?php while (have_posts()) : the_post(); ?>
+      <?php get_template_part('templates/archive', get_post_type()); ?>
+    <?php endwhile; ?>
+  </section>
+<?php endif; ?>
 
 <?php if ($wp_query->max_num_pages > 1) : ?>
   <nav class="post-nav">
