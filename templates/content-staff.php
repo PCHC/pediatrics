@@ -27,7 +27,7 @@
             {
               // get_field_object( $field_name, $post_id, $options )
               // - $value has already been loaded for us, no point to load it again in the get_field_object function
-              if( $value && $field_name != 'title' ) {
+              if( $value && $field_name != 'title' && $field_name != 'location' ) {
               
                 $field = get_field_object($field_name, false, array('load_value' => false));
                 
