@@ -1,6 +1,7 @@
 <?php while (have_posts()) : the_post(); ?>
   <article <?php post_class(); ?>>
     <header>
+      <a class="right" href="<?php echo get_post_type_archive_link( get_post_type() ); ?>"><small><i class="fa fa-chevron-left"></i> View All Staff</small></a>
       <h1 class="entry-title"><?php the_title(); ?></h1>
       <?php if( has_post_thumbnail() ) : ?>
         <?php the_post_thumbnail( 'pchc-thumb-provider', array(
