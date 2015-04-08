@@ -669,19 +669,6 @@ article {
 /**
  * Image styles
  */
-.align-right, .alignright {
-	float: right;
-	margin: 1em 0 1em 1em;
-	max-width: 45%;
-	@include shadow-z-1;
-}
-
-.align-left, .alignleft {
-	float: left;
-	margin: 1em 1em 1em 0;
-	max-width: 45%;
-	@include shadow-z-1;
-}
 
 img {
 	max-width: 100%;
@@ -689,6 +676,20 @@ img {
 
 	&.circle {
 		border-radius: 50%;
+	}
+
+	&.align-right, &.alignright {
+	float: right;
+	margin: 1em 0 1em 1em;
+	max-width: 45%;
+	@include shadow-z-1;
+}
+
+	&.align-left, &.alignleft {
+		float: left;
+		margin: 1em 1em 1em 0;
+		max-width: 45%;
+		@include shadow-z-1;
 	}
 }
 
