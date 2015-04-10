@@ -576,11 +576,15 @@ footer.content-info {
 	 * Locations
 	 */
 	.location {
-		margin-top: 1em;
-		margin-bottom: 1em;
-		@include span-columns(6);
+		float: left;
+		width: 50%;
+
+		&:nth-child(2n+1) {
+			clear: left;
+		}
 
 		header {
+			margin: 1em;
 			a {
 				display: block;
 				overflow: hidden;
@@ -591,7 +595,7 @@ footer.content-info {
 					color: $color-primary;
 					transition: all 0.15s ease-out;
 					margin: 0.5em;
-					font-size: em(24px);
+					font-size: em(20px);
 				}
 
 				&:hover {
