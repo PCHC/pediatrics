@@ -52,6 +52,23 @@
     </section>
   <?php endif; ?>
 
+  <?php
+  $hhhc_staff = new WP_Query(array(
+    'numberposts' =>  -1,
+    'post_type' =>    'staff',
+    'meta_key' =>     'location',
+    'meta_value' =>   'seaport'
+  ));
+  
+  if ($hhhc_staff->have_posts()) : ?>
+    <h2>Seaport Community Health Center</h2>
+    <section class="main-content">
+      <?php while ($hhhc_staff->have_posts()) : $hhhc_staff->the_post(); ?>
+        <?php get_template_part('templates/archive', get_post_type()); ?>
+      <?php endwhile; ?>
+    </section>
+  <?php endif; ?>
+
 <?php else : ?>
   <section class="main-content">
     <?php while (have_posts()) : the_post(); ?>
